@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>
+Let's play a game of rock, paper and scissors!
+
+</title>
+
+
+</head>
+
+<body>
+
+
+<script>
+
+function computerPlay(){
+var playnumber = Math.floor((Math.random() * 3) + 1);
+var computerSelection;      
+switch (playnumber) {
+case 1: 
+    computerSelection = rock;
+    break;
+case 2:
+    computerSelection = paper;
+    break;
+case 3:
+    computerSelection = scissors;
+    break;
+}
+return computerSelection;
+}
+
+function playerPlay(string){
+var playerSelection = prompt("Enter a string");
+return playerSelection;
+
+}
+
+
+function playRound(playerSelection, computerSelection) {
+
+switch (playerSelection){
+case /rock/i :
+    if computerSelection == 
+    break;
+case /paper/i:
+    break;
+case /scissors/i:
+    break;
+
+
+
+    
+}
+
+
+
+}
+
+const playerSelection = 'rock'
+const computerSelection = computerPlay()
+console.log(playRound(playerSelection, computerSelection))
+
+</script>
+
+
+
+</body>
+
+
+
+</html>
