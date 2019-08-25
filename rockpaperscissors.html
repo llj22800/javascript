@@ -16,26 +16,14 @@ Let's play a game of rock, paper and scissors!
 <script>
 
 function computerPlay(){
-var playnumber = Math.floor((Math.random() * 3) + 1);
-var computerSelection;      
-switch (playnumber) {
-case 1: 
-    computerSelection = rock;
-    break;
-case 2:
-    computerSelection = paper;
-    break;
-case 3:
-    computerSelection = scissors;
-    break;
-}
+var computerSelection = Math.floor((Math.random() * 3) + 1);
+      //rock =1 , paper=2 , scissors=3
 return computerSelection;
 }
 
 function playerPlay(string){
 var playerSelection = prompt("Enter a string");
 return playerSelection;
-
 }
 
 
@@ -43,25 +31,38 @@ function playRound(playerSelection, computerSelection) {
 
 switch (playerSelection){
 case /rock/i :
-    if computerSelection == 
+    if (computerSelection == 1)//rock
+        return "It's a Tie!"
+    else if (computerSelection ==2)//paper
+        return "You Lose! Paper beats Rock"
+    else //scissors
+        return "You Win! Rock beats Scissors"
     break;
+
 case /paper/i:
+    if (computerSelection == 1)//rock
+        return "You Win! Paper beats Rock"
+    else if (computerSelection ==2)//paper
+        return "It's a Tie!"
+    else //scissors
+        return "You Lose! Scissors beats Paper"
     break;
+
 case /scissors/i:
+    if (computerSelection == 1)//rock
+        return "You Lose! Rock beats Scissors"
+    else if (computerSelection ==2)//paper
+        return "You Win! Scissors beats Paper"
+    else //scissors
+        return "It's a Tie!"
     break;
 
-
-
-    
 }
 
 
 
 }
 
-const playerSelection = 'rock'
-const computerSelection = computerPlay()
-console.log(playRound(playerSelection, computerSelection))
 
 </script>
 
