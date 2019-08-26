@@ -15,6 +15,8 @@ Let's play a game of rock, paper and scissors!
 
 <script>
 
+var winorlose;
+
 function computerPlay(){
 var computer = Math.floor((Math.random() * 3) + 1);
       //rock =1 , paper=2 , scissors=3
@@ -34,30 +36,55 @@ function playRound(playerSelection, computerSelection) {
 
 switch (playerSelection){
 case ("rock") :
-    if (computerSelection === "rock")//rock
+    if (computerSelection === "rock"){
+        winorlose = 1;
         return "It's a Tie!"
-    else if (computerSelection === "paper")//paper
+    }
+
+    else if (computerSelection === "paper"){//paper
+        winorlose = 0;
         return "You Lose! Paper beats Rock"
-    else //scissors
+    }
+
+    else{ //scissors
+        winorlose = 2;
         return "You Win! Rock beats Scissors"
+    }
     break;
 
-case (/paper/i):
-    if (computerSelection === "rock")//rock
+case ("paper"):
+    if (computerSelection === "rock"){//rock
+        winorlose = 2;
         return "You Win! Paper beats Rock"
-    else if (computerSelection === "paper")//paper
+    }
+
+    else if (computerSelection === "paper"){//paper
+        winorlose = 1;
         return "It's a Tie!"
-    else //scissors
+    }
+
+    else {//scissors
+        winorlose = 0;
         return "You Lose! Scissors beats Paper"
+    }
     break;
 
-case (/scissors/i):
-    if (computerSelection === "rock")//rock
+case ("scissors"):
+    if (computerSelection === "rock"){//rock
+        winorlose = 0;
         return "You Lose! Rock beats Scissors"
-    else if (computerSelection === "paper")//paper
+    }
+
+    else if (computerSelection === "paper"){//paper
+        winorlose = 2;
         return "You Win! Scissors beats Paper"
-    else //scissors
+    }
+
+    else {//scissors
+        winorlose = 1;
         return "It's a Tie!"
+    }
+    
     break;
 
 }
@@ -65,10 +92,42 @@ case (/scissors/i):
 
 }
 
-const playerSelection = 'rock';
-const computerSelection = computerPlay();
 
 
+
+function game(){
+
+var playerCount = 0, computerCount = 0, round = 0;
+
+while (round < 5){
+
+    var computerSelection = computerPlay();
+    var playerSelection = prompt("Rock, paper, or Scissors?").toLowerCase;
+    playRound(playerSelection, computerSelection);
+
+    if (winorlose === 0){
+        playerCount++;
+        round++;
+    }
+
+    else if (winorlose === 2){
+        computerCount++;
+        round++
+
+    }
+
+    else{
+        round++;
+    }
+
+}
+
+if (playerCount > computerCount)
+    return "Winner is Player, score: " + playerCount;
+else
+    return "Winner is Computer, score: " + computerCount;
+
+}
 
 
 
